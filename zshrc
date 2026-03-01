@@ -101,3 +101,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Color de las sugerencias (Gris claro para legibilidad en Night Owl)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+
+# Alias para pruebas de red
+alias speed="speedtest-cli --simple"
+alias ip-local="ip -color -br a"
+alias ip-publica="curl ifconfig.me ; echo"

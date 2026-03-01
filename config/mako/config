@@ -1,0 +1,10 @@
+# Tema Night Owl para Notificaciones
+background-color=#011627
+text-color=#d6deeb
+border-color=#82aaff
+border-size=2
+border-radius=10
+margin=20
+padding=15
+default-timeout=5000
+font=JetBrainsMono Nerd Font 10

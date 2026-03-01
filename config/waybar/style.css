@@ -24,13 +24,23 @@ window#waybar {
     color: #ef5350; /* Rojo suave para alertas */
 }
 
-#clock, #pulseaudio, #network, #tray, #window {
+/* Agrupamos TODOS los módulos aquí para que tengan el mismo 
+  fondo, bordes redondeados y márgenes. 
+*/
+#clock, #pulseaudio, #network, #tray, #window, #temperature, #cpu, #memory, #bluetooth {
     padding: 0 14px;
     margin: 4px 4px;
     border-radius: 8px;
     background-color: #1e3140; /* Fondo de cada píldora */
 }
 
-#clock { color: #ecc48d; } /* Oro */
-#pulseaudio { color: #c792ea; } /* Morado */
-#network { color: #addb67; } /* Verde Lima */
+/* =========================================================
+   COLORES INDIVIDUALES (Paleta Night Owl sin Morado)
+   ========================================================= */
+#clock { color: #ecc48d; }        /* Oro */
+#pulseaudio { color: #7fdbca; }   /* Cyan / Teal (Reemplaza al morado) */
+#network { color: #addb67; }      /* Verde Lima */
+#bluetooth { color: #82aaff; }    /* Azul brillante */
+#cpu { color: #82aaff; }          /* Azul brillante */
+#memory { color: #f78c6c; }       /* Naranja suave */
+#temperature { color: #ff5874; }  /* Rojo rosado */

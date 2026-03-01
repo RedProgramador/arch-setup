@@ -8,7 +8,7 @@
     "margin-right": 10,
     "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "tray"],
+    "modules-right": ["tray", "temperature", "cpu", "memory", "pulseaudio", "bluetooth", "network"],
 
     "sway/workspaces": {
         "disable-scroll": true,
@@ -32,6 +32,18 @@
         "format": "󱑒 {:%H:%M   %d %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%"
+    },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "󰖁 Muted",
@@ -40,13 +52,43 @@
         },
         "on-click": "pavucontrol"
     },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-off": " Off",
+        "on-click": "blueman-manager"
+    },
     "network": {
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀  Wired",
-        "format-disconnected": "⚠ Disconnected",
-        "tooltip-format": "{ifname} via {gwaddr} "
+        "format-ethernet": "󰈀  {ipaddr}",
+        "format-disconnected": "⚠ Sin Red",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "alacritty -e nmtui" 
     },
     "tray": {
         "spacing": 10
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout -b 2"
     }
 }

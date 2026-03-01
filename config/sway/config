@@ -12,7 +12,9 @@ set $menu wofi --show drun
 
 # --- 2. Monitores (Displays) ---
 # Fondo oscuro base. Ajustar nombres (ej. DP-1, HDMI-A-1) tras ejecutar `swaymsg -t get_outputs`
-output * bg #282a36 solid_color
+#output * bg #282a36 solid_color
+output * bg #011627 solid_color  # Fondo Night Owl
+
 
 # --- 3. Atajos Globales del Sistema ---
 # Iniciar terminal (Mantén A + Enter)
@@ -29,6 +31,9 @@ bindsym $mod+Shift+c reload
 
 # Salir de Sway
 bindsym $mod+Shift+Escape exec swaynag -t warning -m '¿Deseas salir de Sway?' -B 'Sí, salir' 'swaymsg exit'
+
+# Tomar captura de pantalla
+bindsym Print exec flameshot gui
 
 # --- 4. Navegación Física Dvorak (D, H, T, N) ---
 # Mover el foco entre ventanas sin mover la mano derecha de la fila central
@@ -90,3 +95,22 @@ bar {
 # --- 9. Inicio Automático ---
 exec polkit-gnome-authentication-agent-1
 # exec mako (Descomentar para habilitar notificaciones)
+
+# --- 10. Estética y Gaps (Estilo Night Owl) ---
+# Espacios entre ventanas (Gaps)
+gaps inner 8
+gaps outer 4
+
+# Bordes de ventanas
+default_border pixel 2
+default_floating_border pixel 2
+
+# Colores de bordes (Night Owl Palette)
+# class                 border    background text    indicator child_border
+client.focused          #82aaff   #011627    #d6deeb #addb67   #82aaff
+client.unfocused        #1e3140   #011627    #575656 #1e3140   #1e3140
+client.focused_inactive #1e3140   #011627    #d6deeb #1e3140   #1e3140
+client.urgent           #ef5350   #011627    #ffffff #ef5350   #ef5350
+
+#fondo de pantalla
+output * bg ~/arch-setup/wallpaper.jpg fill
