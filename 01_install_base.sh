@@ -26,15 +26,24 @@ sudo pacman -S --needed --noconfirm git base-devel wget curl unzip unrar p7zip b
 # 2. Drivers, Audio y Terminal
 sudo pacman -S --needed --noconfirm mesa vulkan-intel intel-media-driver pavucontrol pamixer ntfs-3g rsync alacritty starship ttf-jetbrains-mono-nerd
 
-# 3. Entorno Wayland, Sway y Visores (PDF/Fotos)
-# Añadimos zathura (PDF), imv (Fotos) y wlogout (Menú de apagado)
-sudo pacman -S --needed --noconfirm sway swaybg waybar wofi wl-clipboard cliphist mako polkit-gnome zsh zsh-autosuggestions zsh-syntax-highlighting zathura zathura-pdf-mupdf imv wlogout networkmanager bluez bluez-utils
+# 3. Entorno Wayland, Sway y Red
+# Separamos los paquetes críticos de red y bluetooth para asegurar que se instalen sí o sí
+sudo pacman -S --needed --noconfirm networkmanager bluez bluez-utils
+
+# Instalamos el resto del entorno gráfico
+# Nota: Si alguno de estos falla, pacman lo dirá, pero no romperá la red ni el bluetooth
+sudo pacman -S --needed --noconfirm sway swaybg waybar wofi wl-clipboard cliphist mako polkit-gnome zsh zsh-autosuggestions zsh-syntax-highlighting zathura zathura-pdf-mupdf imv wlogout
 
 # 4. Docker y Seguridad
 sudo pacman -S --needed --noconfirm neovim tmux docker docker-compose tailscale keepassxc
+
+# --- HABILITACIÓN DE SERVICIOS ---
+echo -e "${BLUE}[+] Habilitando servicios del sistema...${NC}"
+sudo systemctl enable NetworkManager.service  # ¡VITAL PARA TENER INTERNET AL REINICIAR!
+sudo systemctl enable bluetooth.service
 sudo systemctl enable docker.service
 sudo systemctl enable tailscaled.service
-sudo systemctl enable bluetooth.service
+
 sudo usermod -aG docker "$USER"
 
 # 5. Paru (AUR)
