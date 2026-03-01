@@ -1,0 +1,36 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: rgba(1, 22, 39, 0.85); /* Azul Night Owl transparente */
+    border-radius: 12px;
+    color: #d6deeb;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: #575656; /* Gris apagado para los inactivos */
+    background: transparent;
+}
+
+#workspaces button.focused {
+    color: #82aaff; /* Azul brillante para el activo */
+}
+
+#workspaces button.urgent {
+    color: #ef5350; /* Rojo suave para alertas */
+}
+
+#clock, #pulseaudio, #network, #tray, #window {
+    padding: 0 14px;
+    margin: 4px 4px;
+    border-radius: 8px;
+    background-color: #1e3140; /* Fondo de cada píldora */
+}
+
+#clock { color: #ecc48d; } /* Oro */
+#pulseaudio { color: #c792ea; } /* Morado */
+#network { color: #addb67; } /* Verde Lima */
