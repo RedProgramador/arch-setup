@@ -1,0 +1,76 @@
+# 🚀 Arch Linux Setup - darkdev ("De Papayita")
+
+Este repositorio contiene la Infraestructura como Código (IaC) para levantar mi entorno de desarrollo backend de élite en Arch Linux desde cero en menos de 30 minutos.
+
+## 🖥️ Hardware Objetivo
+* **Host:** Dell Latitude 5440 (i7 13th Gen, 32GB RAM)
+* **Monitores:** 3 pantallas (1080p, 4K, 2K Vertical)
+* **Entorno:** Sway (Wayland) + Alacritty + Neovim + Docker
+
+---
+
+## 🛠️ Paso a Paso: El Día Cero (Instalación)
+
+### 1. Preparación y Arranque
+1. Conectar la USB booteable con Arch Linux.
+2. Encender la laptop y presionar `F12` (en Dell) para entrar al menú de Boot.
+3. Seleccionar la USB (asegurarse de arrancar en modo **UEFI**).
+4. Verás una terminal negra que dice `root@archiso ~ #`.
+
+### 2. Conexión a Internet (Si usas Wi-Fi)
+Si no tienes cable de red conectado, conéctate al Wi-Fi con estos comandos:
+\`\`\`bash
+iwctl
+[iwd]# device list
+[iwd]# station wlan0 scan
+[iwd]# station wlan0 get-networks
+[iwd]# station wlan0 connect "TU_RED_WIFI"
+[iwd]# exit
+\`\`\`
+Verifica la conexión: `ping google.com`
+
+### 3. El Instalador Mágico
+Ejecuta el instalador oficial:
+\`\`\`bash
+archinstall
+\`\`\`
+
+Configura **EXACTAMENTE** estas opciones en el menú:
+* **Mirrors:** Colombia o US.
+* **Locales:** Tu idioma y teclado (ej. `us` o `latam`).
+* **Disk configuration:** Selecciona tu disco principal -> `ext4` o `btrfs` -> Yes, format.
+* **Bootloader:** `systemd-boot` (¡Importante para UEFI!).
+* **Profile:** `Minimal` (Un sistema puro, sin basura).
+* **Audio:** `Pipewire` *(Si no te aparece esta opción, ignórala)*..
+* **Network:** `NetworkManager (default backend)`.
+* **Authentication:** Crea el usuario `darkdev`, ponle clave y dile que **SÍ** a ser Superusuario (sudo).
+* 🚨 **Additional packages (EL TRUCO):** Escribe aquí la palabra `git pipewire pipewire-pulse wireplumber`. Así, cuando Arch termine, ya tendrás git instalado. 🚨
+
+Baja hasta **Install** y presiona Enter. Al terminar, dile que quieres reiniciar (`reboot`).
+
+---
+
+## 🚀 Paso a Paso: Post-Instalación (El Script)
+
+### 1. Clonar el repositorio
+Una vez que la laptop reinicie, verás una pantalla negra pidiendo tu usuario. Inicia sesión como `darkdev`.
+Como instalamos `git` en el paso anterior, ejecuta:
+\`\`\`bash
+git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+cd TU_REPOSITORIO
+\`\`\`
+*(Nota: Si por alguna razón olvidaste instalar git, usa: `curl -O https://raw.githubusercontent.com/TU_USUARIO/TU_REPOSITORIO/main/install.sh`)*
+
+### 2. Ejecutar la magia
+Dale permisos al script y córrelo:
+\`\`\`bash
+chmod +x install.sh
+./install.sh
+\`\`\`
+
+### 3. Entrar a la Matrix
+Cuando el script termine y reinicies la PC (`reboot`), en la pantalla negra de login inicia sesión normalmente y luego escribe:
+\`\`\`bash
+sway
+\`\`\`
+¡Bienvenido a tu nuevo entorno de élite!

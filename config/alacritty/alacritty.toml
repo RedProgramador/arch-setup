@@ -1,5 +1,3 @@
-# ~/.config/alacritty/alacritty.toml
-
 [window]
 padding = { x = 12, y = 12 }
 opacity = 0.95
@@ -9,12 +7,12 @@ startup_mode = "Maximized"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-size = 11.0 # 11.0 es el "sweet spot" para fuentes Nerd Font
+size = 11.0
 
 [terminal]
 shell = "/usr/bin/zsh"
 
-# --- ESQUEMA DE COLORES: TOKYO NIGHT ---
+# --- ESQUEMA DE COLORES: NIGHT OWL ---
 [colors.primary]
 background = '#011627'
 foreground = '#d6deeb'
@@ -30,20 +28,19 @@ cyan    = '#21c7a8'
 white   = '#ffffff'
 
 [colors.bright]
-black =   "#414868"
-red =     "#f7768e"
-green =   "#9ece6a"
-yellow =  "#e0af68"
-blue =    "#7aa2f7"
-magenta = "#bb9af7"
-cyan =    "#7dcfff"
-white =   "#c0caf5"
+black   = '#575656'
+red     = '#ef5350'
+green   = '#22da6e'
+yellow  = '#addb67'
+blue    = '#82aaff'
+magenta = '#c792ea'
+cyan    = '#7fdbca'
+white   = '#ffffff'
 
-# --- ATAJOS DE TECLADO ---
 [keyboard]
 bindings = [
     { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
     { key = "Plus", mods = "Control|Shift", action = "IncreaseFontSize" },
     { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
-    { key = "0", mods = "Control", action = "ResetFontSize" }
+    { key = "Key0", mods = "Control", action = "ResetFontSize" } # Corregido a Key0
 ]

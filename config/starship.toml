@@ -1,36 +1,45 @@
 # ~/.config/starship.toml
 
 format = """
-[░▒▓](#3B4252)\
-[  ](bg:#3B4252 fg:#E5E9F0)\
-[](gen-bg:#434C5E fg:#3B4252)\
+[░▒▓](#011627)\
+[ 󰣇 ](bg:#011627 fg:#82aaff)\
+[](fg:#011627 bg:#1e3140)\
 $directory\
-[](fg:#434C5E bg:#4C566A)\
+[](fg:#1e3140 bg:#2d4252)\
 $git_branch\
 $git_status\
-[](fg:#4C566A bg:#88C0D0)\
+[](fg:#2d4252 bg:#82aaff)\
 $rust$nodejs$docker_context\
-[](fg:#88C0D0 bg:#81A1C1)\
+[](fg:#82aaff bg:#011627)\
 $time\
-[ ](fg:#81A1C1)\
+[ ](fg:#011627)\
 \n$character"""
 
 [directory]
-style = "bg:#434C5E fg:#E5E9F0"
-format = "[ $path ]($style)"
+style = "bg:#1e3140 fg:#addb67"
+format = "[ 󰉋 $path ]($style)"
 truncation_length = 3
 
 [git_branch]
 symbol = ""
-style = "fg:#addb67" # Un verde oliva/lima muy suave (de Night Owl)
+style = "bg:#2d4252 fg:#82aaff"
 format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#2d4252 fg:#ef5350"
+format = '([$all_status$ahead_behind]($style))'
 
 [time]
 disabled = false
 time_format = "%R"
-style = "fg:#7fdbca" # Un cian relajado para la fecha
-format = 'at [$time]($style) '
+style = "bg:#011627 fg:#ecc48d"
+format = '[ 󱑒 $time ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#82aaff fg:#011627"
+format = '[ $symbol ]($style)'
 
 [character]
-success_symbol = "[λ](bold green)"
-error_symbol = "[λ](bold red)"
+success_symbol = "[⚡](bold #addb67)"
+error_symbol = "[✖](bold #ef5350)"
