@@ -8,15 +8,7 @@
     "margin-right": 10,
     "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-   "modules-right": ["tray", "temperature", "cpu", "memory", "battery", "pulseaudio", "bluetooth", "network"],
-
-    "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 Cableado",
-        "format-disconnected": "⚠ Sin Red",
-        "tooltip-format": "Red Actual: {ifname}\nClic para buscar o cambiar red",
-        "on-click": "alacritty -e nmtui" 
-    },
+    "modules-right": ["tray", "temperature", "cpu", "memory", "battery", "pulseaudio", "pulseaudio#microphone", "bluetooth", "network", "custom/power"],
 
     "sway/workspaces": {
         "disable-scroll": true,
@@ -38,7 +30,12 @@
     },
     "clock": {
         "format": "󱑒 {:%H:%M   %d %b}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "temperature": {
         "critical-threshold": 80,
@@ -46,25 +43,37 @@
         "format-critical": " {temperatureC}°C"
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": " {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%"
     },
     "pulseaudio": {
+        "scroll-step": 5,
         "format": "{icon} {volume}%",
         "format-muted": "󰖁 Muted",
         "format-icons": {
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t"
     },
-    "bluetooth": {
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5"
+    },
+   "bluetooth": {
         "format": " {status}",
-        "format-connected": " {device_alias}",
-        "format-off": " Off",
-        "on-click": "blueman-manager"
+        "format-connected": " {device_alias} 󰥉 {device_battery_percentage}%",
+        "format-off": "󰂲 Apagado",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} conectados",
+        "on-click": "blueman-manager", 
+        "on-click-right": "rfkill toggle bluetooth"
     },
     "network": {
         "format-wifi": "  {essid}",
@@ -85,14 +94,6 @@
         "format-charging": "󰂄 {capacity}%",
         "format-plugged": " {capacity}%",
         "format-icons": ["", "", "", "", ""]
-    },
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " Muted",
-        "on-click": "pamixer --default-source -t",
-        "on-scroll-up": "pamixer --default-source -i 5",
-        "on-scroll-down": "pamixer --default-source -d 5"
     },
     "custom/power": {
         "format": "⏻",

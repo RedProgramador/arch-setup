@@ -29,6 +29,7 @@ sudo pacman -S --needed --noconfirm mesa vulkan-intel intel-media-driver pavucon
 # 3. Entorno Wayland, Sway y Red
 # Separamos los paquetes críticos de red y bluetooth para asegurar que se instalen sí o sí
 sudo pacman -S --needed --noconfirm networkmanager bluez bluez-utils
+sudo pacman -S --needed --noconfirm networkmanager bluez bluez-utils blueman
 
 # Instalamos el resto del entorno gráfico
 # Nota: Si alguno de estos falla, pacman lo dirá, pero no romperá la red ni el bluetooth
