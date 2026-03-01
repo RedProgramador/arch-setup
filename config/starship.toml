@@ -22,14 +22,14 @@ truncation_length = 3
 
 [git_branch]
 symbol = ""
-style = "bg:#4C566A fg:#E5E9F0"
-format = '[[ $symbol $branch ](bg:#4C566A fg:#E5E9F0)]($style)'
+style = "fg:#addb67" # Un verde oliva/lima muy suave (de Night Owl)
+format = '[ $symbol $branch ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hora militar
-style = "bg:#81A1C1 fg:#2E3440"
-format = '[[  $time ](bg:#81A1C1 fg:#2E3440)]($style)'
+time_format = "%R"
+style = "fg:#7fdbca" # Un cian relajado para la fecha
+format = 'at [$time]($style) '
 
 [character]
 success_symbol = "[λ](bold green)"

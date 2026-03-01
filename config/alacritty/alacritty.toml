@@ -16,18 +16,18 @@ shell = "/usr/bin/zsh"
 
 # --- ESQUEMA DE COLORES: TOKYO NIGHT ---
 [colors.primary]
-background = "#000000"
-foreground = "#c0caf5"
+background = '#011627'
+foreground = '#d6deeb'
 
 [colors.normal]
-black =   "#15161e"
-red =     "#f7768e"
-green =   "#9ece6a"
-yellow =  "#e0af68"
-blue =    "#7aa2f7"
-magenta = "#bb9af7"
-cyan =    "#7dcfff"
-white =   "#a9b1d6"
+black   = '#011627'
+red     = '#ef5350'
+green   = '#22da6e'
+yellow  = '#addb67'
+blue    = '#82aaff'
+magenta = '#c792ea'
+cyan    = '#21c7a8'
+white   = '#ffffff'
 
 [colors.bright]
 black =   "#414868"
