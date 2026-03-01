@@ -16,7 +16,7 @@ shell = "/usr/bin/zsh"
 
 # --- ESQUEMA DE COLORES: TOKYO NIGHT ---
 [colors.primary]
-background = "#1a1b26"
+background = "#000000"
 foreground = "#c0caf5"
 
 [colors.normal]
