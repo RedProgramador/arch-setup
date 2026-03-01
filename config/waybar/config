@@ -8,7 +8,15 @@
     "margin-right": 10,
     "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "temperature", "cpu", "memory", "pulseaudio", "bluetooth", "network"],
+   "modules-right": ["tray", "temperature", "cpu", "memory", "battery", "pulseaudio", "bluetooth", "network"],
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀 Cableado",
+        "format-disconnected": "⚠ Sin Red",
+        "tooltip-format": "Red Actual: {ifname}\nClic para buscar o cambiar red",
+        "on-click": "alacritty -e nmtui" 
+    },
 
     "sway/workspaces": {
         "disable-scroll": true,

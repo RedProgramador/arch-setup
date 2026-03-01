@@ -6,6 +6,7 @@
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export VISUAL='nvim'
+export TERM=xterm-256color
 
 # Unificación de PATH (Sin duplicados)
 export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:/usr/sbin:/sbin:$PATH"

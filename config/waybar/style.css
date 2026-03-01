@@ -1,6 +1,6 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -17,7 +17,9 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color: #82aaff; /* Azul brillante para el activo */
+    color: #011627; /* Letra oscura */
+    background-color: #82aaff; /* Fondo Azul brillante */
+    border-radius: 8px;
 }
 
 #workspaces button.urgent {
