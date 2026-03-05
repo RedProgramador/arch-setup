@@ -133,6 +133,7 @@ ln -sf "$REPO_PATH/config/waybar/config" "$HOME/.config/waybar/"
 ln -sf "$REPO_PATH/config/waybar/style.css" "$HOME/.config/waybar/"
 ln -sf "$REPO_PATH/config/wofi/style.css" "$HOME/.config/wofi/"
 ln -sf "$REPO_PATH/config/mako/config" "$HOME/.config/mako/"
+ln -sf "$REPO_PATH/config/wlogout/style.css" "$HOME/.config/wlogout/"
 
 cat > "$HOME/.config/flameshot/flameshot.ini" <<EOF
 [General]

@@ -1,0 +1,38 @@
+window {
+    background-color: rgba(1, 22, 39, 0.85); /* Fondo Night Owl translúcido */
+}
+
+button {
+    border-radius: 20px;
+    border-color: #1e3140; /* Azul oscuro */
+    color: #d6deeb;
+    background-color: #1e3140;
+    border-style: solid;
+    border-width: 2px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    margin: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+button:focus, button:hover {
+    background-color: #82aaff; /* Azul brillante al pasar el mouse */
+    border-color: #82aaff;
+    color: #011627;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    transform: scale(1.05); /* El botón crece un poquito */
+}
+
+/* Colores de alerta específicos para Reiniciar y Apagar */
+#shutdown:hover { background-color: #ef5350; border-color: #ef5350; } /* Rojo */
+#reboot:hover { background-color: #f78c6c; border-color: #f78c6c; }   /* Naranja */
+
+/* Rutas a los íconos por defecto de Wlogout */
+#lock { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#suspend { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
+#hibernate { background-image: image(url("/usr/share/wlogout/icons/hibernate.png")); }
+#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }
+#reboot { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
