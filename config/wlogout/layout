@@ -1,36 +1,36 @@
 {
     "label" : "lock",
     "action" : "swaylock -f -c 011627",
-    "text" : "Bloquear",
+    "text" : "Lock",
     "keybind" : "l"
 }
 {
     "label" : "hibernate",
     "action" : "systemctl hibernate",
-    "text" : "Hibernar",
+    "text" : "Hibernate",
     "keybind" : "h"
 }
 {
     "label" : "logout",
     "action" : "swaymsg exit",
-    "text" : "Salir",
+    "text" : "Logout",
     "keybind" : "e"
 }
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
-    "text" : "Apagar",
+    "text" : "Shutdown",
     "keybind" : "s"
 }
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "Suspender",
+    "text" : "Suspend",
     "keybind" : "u"
 }
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
-    "text" : "Reiniciar",
+    "text" : "Reboot",
     "keybind" : "r"
 }
