@@ -1,32 +1,33 @@
 window {
-    background-color: rgba(1, 22, 39, 0.85);
+    background-color: rgba(1, 22, 39, 0.9); /* Azul Night Owl */
 }
 
 button {
+    border-radius: 20px;
+    border-color: #1e3140;
+    color: #d6deeb;
     background-color: #1e3140;
-    color: #7fdbca; 
     border-style: solid;
     border-width: 2px;
-    border-color: #1e3140;
-    border-radius: 20px;
     background-repeat: no-repeat;
-    background-position: center 25%; /* Icono un poco más arriba */
-    background-size: 30%; 
+    background-position: center;
+    background-size: 25%;
     margin: 10px;
-    transition: all 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 button:focus, button:hover {
     background-color: #82aaff;
     border-color: #82aaff;
     color: #011627;
-    transform: scale(1.05);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
 }
 
-#reboot { color: #addb67; }
-#shutdown { color: #ef5350; }
+/* Colores Hover */
+#shutdown:hover { background-color: #ef5350; border-color: #ef5350; }
+#reboot:hover { background-color: #f78c6c; border-color: #f78c6c; }
 
-/* Iconos */
+/* Iconos (Sintaxis corregida para GTK3) */
 #lock { background-image: url("/usr/share/wlogout/icons/lock.png"); }
 #logout { background-image: url("/usr/share/wlogout/icons/logout.png"); }
 #suspend { background-image: url("/usr/share/wlogout/icons/suspend.png"); }
