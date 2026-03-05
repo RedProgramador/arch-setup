@@ -114,6 +114,6 @@
     "custom/power": {
         "format": "⏻",
         "tooltip": false,
-        "on-click": "wlogout -b 6 -t 350 -b 350 -l 150 -r 150"
+        "on-click": "wlogout -b 6 -T 300 -B 300 -L 150 -R 150"
     }
 }
