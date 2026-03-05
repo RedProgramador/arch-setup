@@ -122,7 +122,7 @@ paru -S --needed --noconfirm brave-bin wlogout
 
 echo -e "${BLUE}[6/6] Desplegando dotfiles...${NC}"
 
-mkdir -p "$HOME/.config"/{alacritty,sway,waybar,wofi,mako,flameshot}
+mkdir -p "$HOME/.config"/{alacritty,sway,waybar,wofi,mako,flameshot,wlogout}
 
 ln -sf "$REPO_PATH/zshrc" "$HOME/.zshrc"
 ln -sf "$REPO_PATH/tmux.conf" "$HOME/.tmux.conf"
