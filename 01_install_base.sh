@@ -69,11 +69,11 @@ NETWORK_PKGS=(
 WAYLAND_PKGS=(
   sway swaybg waybar wofi wl-clipboard cliphist
   mako polkit-gnome zsh swaylock swayidle
-  zathura zathura-pdf-mupdf imv wlogout
+  zathura zathura-pdf-mupdf imv
 )
 
 DEV_PKGS=(
-  neovim tmux docker docker-compose-plugin
+  neovim tmux docker docker-compose
   tailscale keepassxc eza bat zoxide fzf ripgrep
 )
 
@@ -112,8 +112,8 @@ if ! command -v paru &>/dev/null; then
   rm -rf "$TMP_DIR"
 fi
 
-echo -e "${BLUE}[+] Instalando Brave Browser desde AUR...${NC}"
-paru -S --needed --noconfirm brave-bin
+echo -e "${BLUE}[+] Instalando Brave Browser y wlogout desde AUR...${NC}"
+paru -S --needed --noconfirm brave-bin wlogout
 
 # ==============================================================================
 # DOTFILES
