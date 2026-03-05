@@ -75,6 +75,7 @@ WAYLAND_PKGS=(
 DEV_PKGS=(
   neovim tmux docker docker-compose
   tailscale keepassxc eza bat zoxide fzf ripgrep
+  zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 )
 
 sudo pacman -S --needed --noconfirm \
