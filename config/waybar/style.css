@@ -27,9 +27,9 @@ window#waybar {
 }
 
 /* Agrupamos TODOS los módulos aquí para que tengan el mismo 
-  fondo, bordes redondeados y márgenes. 
+   fondo, bordes redondeados y márgenes. 
 */
-#clock, #pulseaudio, #network, #tray, #window, #temperature, #cpu, #memory, #bluetooth {
+#clock, #pulseaudio, #network, #tray, #window, #temperature, #cpu, #memory, #bluetooth, #battery, #custom-power {
     padding: 0 14px;
     margin: 4px 4px;
     border-radius: 8px;
@@ -46,3 +46,29 @@ window#waybar {
 #cpu { color: #82aaff; }          /* Azul brillante */
 #memory { color: #f78c6c; }       /* Naranja suave */
 #temperature { color: #ff5874; }  /* Rojo rosado */
+#battery { color: #addb67; }      /* Verde Lima (Batería sana) */
+#custom-power { color: #ef5350; } /* Botón de apagado en rojo */
+
+/* =========================================================
+   ANIMACIONES Y ESTADOS DE BATERÍA
+   ========================================================= */
+@keyframes blink {
+    to {
+        background-color: #ef5350;
+        color: #ffffff;
+    }
+}
+
+#battery.warning:not(.charging) {
+    color: #f78c6c; /* Se pone naranja suave al llegar a 30% */
+}
+
+#battery.critical:not(.charging) {
+    background-color: #ef5350; /* Fondo rojo alerta */
+    color: #ffffff; /* Letra e ícono en blanco */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

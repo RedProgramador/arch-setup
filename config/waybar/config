@@ -6,9 +6,25 @@
     "margin-top": 6,
     "margin-left": 10,
     "margin-right": 10,
-    "modules-left": ["sway/workspaces", "sway/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "temperature", "cpu", "memory", "battery", "pulseaudio", "pulseaudio#microphone", "bluetooth", "network", "custom/power"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "temperature",
+        "cpu",
+        "memory",
+        "battery",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "bluetooth",
+        "network",
+        "custom/power"
+    ],
 
     "sway/workspaces": {
         "disable-scroll": true,
@@ -37,6 +53,9 @@
             "on-scroll-down": "shift_down"
         }
     },
+    "tray": {
+        "spacing": 10
+    },
     "temperature": {
         "critical-threshold": 80,
         "format": " {temperatureC}°C",
@@ -48,6 +67,16 @@
     },
     "memory": {
         "format": " {}%"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
         "scroll-step": 5,
@@ -67,7 +96,7 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5"
     },
-   "bluetooth": {
+    "bluetooth": {
         "format": " {status}",
         "format-connected": " {device_alias} 󰥉 {device_battery_percentage}%",
         "format-off": "󰂲 Apagado",
@@ -81,19 +110,6 @@
         "format-disconnected": "⚠ Sin Red",
         "tooltip-format": "{ifname} via {gwaddr}",
         "on-click": "alacritty -e nmtui" 
-    },
-    "tray": {
-        "spacing": 10
-    },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""]
     },
     "custom/power": {
         "format": "⏻",
