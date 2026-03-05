@@ -1,52 +1,36 @@
-* {
-    background-image: none;
-    box-shadow: none;
-}
-
 window {
-    background-color: rgba(1, 22, 39, 0.85); /* Fondo Night Owl translúcido */
+    background-color: rgba(1, 22, 39, 0.9); /* Azul Night Owl */
 }
 
 button {
-    /* EL SECRETO: Tamaños fijos para evitar que se estiren */
-    width: 130px;
-    height: 130px;
-    
-    /* Estilo visual */
-    border-radius: 30px; /* Bordes redondeados tipo píldora */
-    border-color: #1e3140; /* Azul oscuro */
+    border-radius: 20px;
+    border-color: #1e3140;
     color: #d6deeb;
     background-color: #1e3140;
     border-style: solid;
     border-width: 2px;
-    
-    /* Iconos */
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25%;
-    
-    /* Spacing interno y externo */
-    margin: 10px; /* Separación entre los botones */
-    
-    transition: all 0.2s ease-in-out;
+    margin: 10px;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 button:focus, button:hover {
-    background-color: #82aaff; /* Azul brillante al pasar el mouse */
+    background-color: #82aaff;
     border-color: #82aaff;
     color: #011627;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
-    transform: scale(1.05); /* El botón crece un poquito */
 }
 
-/* Colores de alerta específicos para Reiniciar y Apagar (Funcionan si hay layout) */
-#shutdown:hover { background-color: #ef5350; border-color: #ef5350; } /* Rojo */
-#reboot:hover { background-color: #f78c6c; border-color: #f78c6c; }   /* Naranja */
+/* Colores Hover */
+#shutdown:hover { background-color: #ef5350; border-color: #ef5350; }
+#reboot:hover { background-color: #f78c6c; border-color: #f78c6c; }
 
-/* Rutas a los íconos por defecto de Wlogout */
-#lock { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
-#logout { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
-#suspend { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
-#hibernate { background-image: image(url("/usr/share/wlogout/icons/hibernate.png")); }
-#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }
-#reboot { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
+/* Iconos (Sintaxis corregida para GTK3) */
+#lock { background-image: url("/usr/share/wlogout/icons/lock.png"); }
+#logout { background-image: url("/usr/share/wlogout/icons/logout.png"); }
+#suspend { background-image: url("/usr/share/wlogout/icons/suspend.png"); }
+#hibernate { background-image: url("/usr/share/wlogout/icons/hibernate.png"); }
+#shutdown { background-image: url("/usr/share/wlogout/icons/shutdown.png"); }
+#reboot { background-image: url("/usr/share/wlogout/icons/reboot.png"); }
