@@ -1,80 +1,32 @@
-* {
-    background-image: none;
-    box-shadow: none;
-}
-
 window {
-    background-color: rgba(1, 22, 39, 0.85); /* Fondo Night Owl translúcido */
+    background-color: rgba(1, 22, 39, 0.9);
 }
 
 button {
-    /* Tamaños fijos y bordes tipo píldora */
-    width: 140px; /* Un poco más anchos */
-    height: 140px; /* Un poco más altos */
-    border-radius: 30px;
-    border-color: #1e3140; /* Azul oscuro */
+    background-color: #1e3140;
+    color: #7fdbca; /* Color Cyan para los iconos */
     border-style: solid;
     border-width: 2px;
-    background-color: #1e3140;
-    
-    /* Iconos */
+    border-color: #1e3140;
+    border-radius: 20px;
     background-repeat: no-repeat;
-    background-position: center 30%; /* Icono más arriba */
-    background-size: 20%; /* Un poco más pequeño el icono */
-    
-    /* Espacio interior para el texto */
-    padding-top: 50px; /* Espacio arriba para el icono */
-    padding-bottom: 20px; /* EL SECRETO: Espacio abajo para empujar el texto */
-    
-    /* Spacing externo */
-    margin: 10px;
-    
-    transition: all 0.2s ease-in-out;
-}
-
-/* Forzar separación extra del texto */
-button label {
-    margin-top: 15px; /* Más espacio entre icono y texto */
-    color: #d6deeb; /* Color de texto por defecto */
+    background-position: center;
+    background-size: 25%;
+    margin: 20px;
+    transition: background-color 0.2s ease-in-out;
 }
 
 button:focus, button:hover {
-    background-color: #82aaff; /* Azul brillante al pasar el mouse */
+    background-color: #82aaff;
     border-color: #82aaff;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
-    transform: scale(1.05);
+    color: #011627;
 }
 
-/* Colores Hover para el botón label */
-button:focus label, button:hover label {
-    color: #011627; /* Texto oscuro */
-}
+/* Colores específicos para que no se vea aburrido */
+#reboot { color: #addb67; }   /* Verde */
+#shutdown { color: #ef5350; } /* Rojo */
 
-/* =========================================================
-   COLORES INDIVIDUALES DE ICONOS (Sin Hover)
-   ========================================================= */
-/* Asignar colores vibrantes a los iconos en estado normal */
-#lock, #logout, #suspend, #hibernate { color: #7fdbca; } /* Cyan */
-#reboot { color: #addb67; }                              /* Verde Lima */
-#shutdown { color: #ef5350; }                            /* Rojo alerta */
-
-/* Restablecer color de texto label en normal para cada uno */
-#lock label, #logout label, #suspend label, #hibernate label, #reboot label, #shutdown label {
-    color: #d6deeb;
-}
-
-/* =========================================================
-   COLORES DE ALERTA ESPECÍFICOS (Hover)
-   ========================================================= */
-#shutdown:hover { background-color: #ef5350; border-color: #ef5350; }
-#shutdown:hover label { color: #ffffff; }
-
-#reboot:hover { background-color: #f78c6c; border-color: #f78c6c; }
-#reboot:hover label { color: #ffffff; }
-
-/* =========================================================
-   RUTAS A LOS ÍCONOS
-   ========================================================= */
+/* Iconos - Asegúrate de que estas rutas existan en tu sistema */
 #lock { background-image: url("/usr/share/wlogout/icons/lock.png"); }
 #logout { background-image: url("/usr/share/wlogout/icons/logout.png"); }
 #suspend { background-image: url("/usr/share/wlogout/icons/suspend.png"); }
