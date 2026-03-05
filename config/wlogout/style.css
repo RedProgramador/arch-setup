@@ -1,32 +1,32 @@
 window {
-    background-color: rgba(1, 22, 39, 0.9);
+    background-color: rgba(1, 22, 39, 0.85);
 }
 
 button {
     background-color: #1e3140;
-    color: #7fdbca; /* Color Cyan para los iconos */
+    color: #7fdbca; 
     border-style: solid;
     border-width: 2px;
     border-color: #1e3140;
     border-radius: 20px;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
-    margin: 20px;
-    transition: background-color 0.2s ease-in-out;
+    background-position: center 25%; /* Icono un poco más arriba */
+    background-size: 30%; 
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
 button:focus, button:hover {
     background-color: #82aaff;
     border-color: #82aaff;
     color: #011627;
+    transform: scale(1.05);
 }
 
-/* Colores específicos para que no se vea aburrido */
-#reboot { color: #addb67; }   /* Verde */
-#shutdown { color: #ef5350; } /* Rojo */
+#reboot { color: #addb67; }
+#shutdown { color: #ef5350; }
 
-/* Iconos - Asegúrate de que estas rutas existan en tu sistema */
+/* Iconos */
 #lock { background-image: url("/usr/share/wlogout/icons/lock.png"); }
 #logout { background-image: url("/usr/share/wlogout/icons/logout.png"); }
 #suspend { background-image: url("/usr/share/wlogout/icons/suspend.png"); }
