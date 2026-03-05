@@ -112,8 +112,8 @@
         "on-click": "alacritty -e nmtui" 
     },
     "custom/power": {
-        "format": "⏻",
-        "tooltip": false,
-        "on-click": "wlogout -b 6 -T 300 -B 300 -L 150 -R 150"
-    }
+	"format": "⏻",
+    	"tooltip": false,
+    	"on-click": "wlogout -l /home/darkdev/.config/wlogout/layout -C /home/darkdev/.config/wlogout/style.css -b 6 -T 300 -B 300 -L 150 -R 150"
+}
 }
