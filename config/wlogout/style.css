@@ -8,18 +8,25 @@ window {
 }
 
 button {
-    border-radius: 24px;
+    /* EL SECRETO: Tamaños fijos para evitar que se estiren */
+    width: 130px;
+    height: 130px;
+    
+    /* Estilo visual */
+    border-radius: 30px; /* Bordes redondeados tipo píldora */
     border-color: #1e3140; /* Azul oscuro */
     color: #d6deeb;
     background-color: #1e3140;
     border-style: solid;
     border-width: 2px;
+    
+    /* Iconos */
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25%;
     
-    /* EL SECRETO: Márgenes grandes para encoger los botones */
-    margin: 30px; 
+    /* Spacing interno y externo */
+    margin: 10px; /* Separación entre los botones */
     
     transition: all 0.2s ease-in-out;
 }
@@ -32,7 +39,7 @@ button:focus, button:hover {
     transform: scale(1.05); /* El botón crece un poquito */
 }
 
-/* Colores de alerta específicos para Reiniciar y Apagar */
+/* Colores de alerta específicos para Reiniciar y Apagar (Funcionan si hay layout) */
 #shutdown:hover { background-color: #ef5350; border-color: #ef5350; } /* Rojo */
 #reboot:hover { background-color: #f78c6c; border-color: #f78c6c; }   /* Naranja */
 
