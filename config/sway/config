@@ -3,106 +3,76 @@
 # ==============================================================================
 
 # --- 1. Variables Principales ---
-# Tu tecla Mod (Mod4) se activa manteniendo presionada la 'A' o la 'S'
 set $mod Mod4
-
-# Herramientas de élite
 set $term alacritty
 set $menu wofi --show drun
 
 # --- 2. Monitores (Displays) ---
-# Fondo oscuro base. Ajustar nombres (ej. DP-1, HDMI-A-1) tras ejecutar `swaymsg -t get_outputs`
-#output * bg #282a36 solid_color
-# Fondo Night Owl
-#output * bg #011627 solid_color  
+# Nota: Según tu fastfetch, tienes 3 pantallas (Build-in, 1440p vertical, 4K). 
+# Más adelante deberás configurar sus posiciones aquí usando `swaymsg -t get_outputs`.
 output * bg ~/arch-setup/wallpaper.jpg fill
 
 # --- 3. Atajos Globales del Sistema ---
-# Iniciar terminal (Mantén A + Enter)
 bindsym $mod+Return exec $term
-
-# Matar ventana actual (Mantén A + Shift + Q)
 bindsym $mod+Shift+q kill
-
-# Menú de aplicaciones Wofi (Mantén A + D... nota: D en Dvorak es 'e' física, ajusta si prefieres otra)
 bindsym $mod+e exec $menu
-
-# Recargar configuración de Sway (Mantén A + Shift + l)
 bindsym $mod+Shift+L reload
-
-# Salir de Sway
 bindsym $mod+Shift+Escape exec swaynag -t warning -m '¿Deseas salir de Sway?' -B 'Sí, salir' 'swaymsg exit'
-
-# Tomar captura de pantalla
 bindsym Print exec flameshot gui
 
-# --- Teclas Multimedia (Volumen y Brillo) ---
+# Bloqueo de pantalla de seguridad (Swaylock con color Night Owl)
+bindsym $mod+l exec swaylock -f -c 011627
+
+# Multimedia
 bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioMute exec pamixer -t
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-
-# Modo Avión (Bloquea/Desbloquea WiFi y Bluetooth)
 bindsym $mod+F12 exec rfkill toggle all
 
 # --- 4. Navegación Física Dvorak (D, H, T, N) ---
-# Mover el foco entre ventanas sin mover la mano derecha de la fila central
-bindsym $mod+h focus left   # Dedo índice
-bindsym $mod+t focus down   # Dedo medio
-bindsym $mod+c focus up     # Dedo anular
-bindsym $mod+n focus right  # Dedo meñique
+bindsym $mod+h focus left
+bindsym $mod+t focus down
+bindsym $mod+c focus up
+bindsym $mod+n focus right
 
-# Mover la ventana en sí (Añadiendo Shift)
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+t move down
 bindsym $mod+Shift+c move up
 bindsym $mod+Shift+n move right
 
 # --- 5. Diseños (Layouts) ---
-# Dividir en horizontal y vertical (Usamos B y V que están en tu mano derecha abajo)
 bindsym $mod+b splith
 bindsym $mod+v splitv
-
-# Estilos de ventana
-bindsym $mod+w layout tabbed         # Agrupar en pestañas
-bindsym $mod+y layout toggle split   # Volver a mosaico
-bindsym $mod+f fullscreen            # Pantalla completa
-bindsym $mod+Shift+space floating toggle # Hacer ventana flotante
+bindsym $mod+w layout tabbed
+bindsym $mod+y layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
 
 # --- 6. Escritorios (Workspaces) adaptados para Corne Dvorak ---
-# Usamos letras de la capa base de la mano derecha (sin chocar con la navegación h,t,c,n)
-# 'd' creará/irá al escritorio 1. 'g', 'r', 'l' para los siguientes.
-
 bindsym $mod+q workspace number 1
 bindsym $mod+j workspace number 2
 bindsym $mod+k workspace number 3
 bindsym $mod+x workspace number 4
 
-# Enviar la ventana actual a esos escritorios (Manteniendo A + Shift)
 bindsym $mod+Shift+q move container to workspace number 1
 bindsym $mod+Shift+j move container to workspace number 2
 bindsym $mod+Shift+k move container to workspace number 3
 bindsym $mod+Shift+x move container to workspace number 4
 
-# Navegación rápida en ciclo (Bonus: muy útil en teclados divididos)
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
 
-
-# --- 7. Redimensionar Ventanas (Modo especial) ---
+# --- 7. Redimensionar Ventanas ---
 mode "resize" {
-    # Usamos tus nuevas teclas de navegación H, T, C, N
     bindsym h resize shrink width 10px
     bindsym t resize grow height 10px
     bindsym c resize shrink height 10px
     bindsym n resize grow width 10px
-
-    # Salir del modo resize
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-# Entrar en modo redimensión (Mantén A + R)
 bindsym $mod+r mode "resize"
 
 # --- 8. Barra de Estado (Waybar) ---
@@ -112,29 +82,36 @@ bar {
 
 # --- 9. Inicio Automático ---
 exec polkit-gnome-authentication-agent-1
-# exec mako (Descomentar para habilitar notificaciones)
+exec blueman-applet
 
 # --- 10. Estética y Gaps (Estilo Night Owl) ---
-# Espacios entre ventanas (Gaps)
 gaps inner 8
 gaps outer 4
-
-# Bordes de ventanas
 default_border pixel 2
 default_floating_border pixel 2
 
-# Colores de bordes (Night Owl Palette)
-# class                 border    background text    indicator child_border
 client.focused          #82aaff   #011627    #d6deeb #addb67   #82aaff
 client.unfocused        #1e3140   #011627    #575656 #1e3140   #1e3140
 client.focused_inactive #1e3140   #011627    #d6deeb #1e3140   #1e3140
 client.urgent           #ef5350   #011627    #ffffff #ef5350   #ef5350
 
-
-
-# --- NUEVO: Configuración de Teclado (Corne Dvorak Hardware) ---
+# --- NUEVO: Configuración de Hardware ---
 input type:keyboard {
     xkb_layout us
     repeat_delay 300
     repeat_rate 50
 }
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+    dwt enabled
+}
+
+# --- Reglas de Ventanas (Window Rules) CORREGIDAS ---
+for_window [app_id="blueman-manager"] floating enable, resize set width 600 height 400, move position center
+for_window [app_id="pavucontrol"] floating enable, resize set width 600 height 400, move position center
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show

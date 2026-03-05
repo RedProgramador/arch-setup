@@ -44,9 +44,11 @@ Configura **EXACTAMENTE** estas opciones en el menú:
 * **Audio:** `Pipewire` *(Si no te aparece esta opción, ignórala)*..
 * **Network:** `NetworkManager (default backend)`.
 * **Authentication:** Crea el usuario `darkdev`, ponle clave y dile que **SÍ** a ser Superusuario (sudo).
-* 🚨 **Additional packages (EL TRUCO):** Escribe aquí la palabra `git pipewire pipewire-pulse wireplumber`. Así, cuando Arch termine, ya tendrás git instalado. 🚨
+* 🚨 **Additional packages (EL TRUCO):** Escribe aquí la palabra `git /pipewire pipewire-pulse wireplumber`. Así, cuando Arch termine, ya tendrás git instalado. 🚨
 
 Baja hasta **Install** y presiona Enter. Al terminar, dile que quieres reiniciar (`reboot`).
+
+Asegúrate de marcar la opción Copy ISO network configuration to installation para que el Wi-Fi siga funcionando al reiniciar.
 
 ---
 
