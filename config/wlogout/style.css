@@ -1,9 +1,14 @@
+* {
+    background-image: none;
+    box-shadow: none;
+}
+
 window {
     background-color: rgba(1, 22, 39, 0.85); /* Fondo Night Owl translúcido */
 }
 
 button {
-    border-radius: 20px;
+    border-radius: 24px;
     border-color: #1e3140; /* Azul oscuro */
     color: #d6deeb;
     background-color: #1e3140;
@@ -12,8 +17,10 @@ button {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25%;
-    margin: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    
+    /* EL SECRETO: Márgenes grandes para encoger los botones */
+    margin: 30px; 
+    
     transition: all 0.2s ease-in-out;
 }
 
