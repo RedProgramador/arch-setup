@@ -60,6 +60,7 @@ SYSTEM_PKGS=(
   pipewire pipewire-pulse pipewire-alsa wireplumber
   pavucontrol pamixer ntfs-3g rsync
   alacritty starship ttf-jetbrains-mono-nerd
+  fastfetch btop htop
 )
 
 NETWORK_PKGS=(
@@ -70,6 +71,7 @@ WAYLAND_PKGS=(
   sway swaybg waybar wofi wl-clipboard cliphist
   mako polkit-gnome zsh swaylock swayidle
   zathura zathura-pdf-mupdf imv
+  tlp thermald
 )
 
 DEV_PKGS=(
@@ -95,6 +97,8 @@ sudo systemctl enable --now NetworkManager.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now tailscaled.service
+sudo systemctl enable --now tlp.service      # <--- NUEVO
+sudo systemctl enable --now thermald.service # <--- NUEVO
 
 sudo usermod -aG docker "$USER"
 
@@ -122,7 +126,7 @@ paru -S --needed --noconfirm brave-bin wlogout
 
 echo -e "${BLUE}[6/6] Desplegando dotfiles...${NC}"
 
-mkdir -p "$HOME/.config"/{alacritty,sway,waybar,wofi,mako,flameshot,wlogout}
+mkdir -p "$HOME/.config"/{alacritty,sway,waybar,wofi,mako,flameshot,wlogout,btop}
 
 ln -sf "$REPO_PATH/zshrc" "$HOME/.zshrc"
 ln -sf "$REPO_PATH/tmux.conf" "$HOME/.tmux.conf"
@@ -134,7 +138,8 @@ ln -sf "$REPO_PATH/config/waybar/style.css" "$HOME/.config/waybar/"
 ln -sf "$REPO_PATH/config/wofi/style.css" "$HOME/.config/wofi/"
 ln -sf "$REPO_PATH/config/mako/config" "$HOME/.config/mako/"
 ln -sf "$REPO_PATH/config/wlogout/style.css" "$HOME/.config/wlogout/"
-ln -sf "$REPO_PATH/config/wlogout/layout ~/.config/wlogout/layoute"
+ln -sf "$REPO_PATH/config/wlogout/layout" "$HOME/.config/wlogout/layout"
+ln -sf "$REPO_PATH/config/btop/btop.conf" "$HOME/.config/btop/btop.conf"
 
 cat > "$HOME/.config/flameshot/flameshot.ini" <<EOF
 [General]

@@ -36,6 +36,7 @@ source <(fzf --zsh)
 # ==============================================================================
 # 4. ALIAS DE ALTA EFICIENCIA
 # ==============================================================================
+# --- Navegación y Listado ---
 alias cd="z"
 alias ..="z .."
 alias ...="z ../.."
@@ -43,24 +44,40 @@ alias ll="eza -lAh --icons --group-directories-first"
 alias l="eza -lh --icons --group-directories-first"
 alias tree="eza --tree --icons"
 
+# --- Gestión de Paquetes (Arch/AUR) ---
 alias update="paru -Syu"
 alias install="paru -S"
 alias remove="paru -Rns"
+alias limpiar="sudo pacman -Rns \$(pacman -Qtdq)"
+
+# --- Herramientas de Sistema ---
+alias b="btop"                   # Monitor de recursos rápido
+alias f="fastfetch"              # Info del sistema rápida
 alias cat="bat --style=plain"
 alias grep='rg'
 alias ayuda="bat ~/arch-setup/config/cheatsheet.md"
+alias cat="bat --style=plain"
 
+# --- Docker ---
 alias d="docker"
 alias dc="docker-compose"
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
 alias ddev="devcontainer"
 
+# --- Red y Apps ---
 alias brave="brave > /dev/null 2>&1 &"
 alias idea="/opt/intellij-idea/idea-IU-252.23892.409/bin/idea.sh > /dev/null 2>&1 &"
 alias fs="flameshot gui"
 alias speed="speedtest -f json | jq '.download.bandwidth |= (. * 8 / 1000000 * 100 | round / 100) | .upload.bandwidth |= (. * 8 / 1000000 * 100 | round / 100) | .ping.latency |= (. * 10 | round / 10) | .download.latency.iqm |= (. * 10 | round / 10)'"
 alias ip-local="ip -color -br a"
 alias ip-publica="curl ifconfig.me ; echo"
+
+# --- Git (Esenciales para Senior) ---
+alias gs="git status"
+alias gp="git push"
+alias gl="git pull"
+alias gc="git commit -m"
+alias ga="git add ."
 
 # ==============================================================================
 # 5. FUNCIONES INTELIGENTES
@@ -88,6 +105,11 @@ extract() {
 # ==============================================================================
 # 6. AUTOCOMPLETADO Y PLUGINS (¡ORDEN CORREGIDO!)
 # ==============================================================================
+
+# Limpiamos el terminal y mostramos el sistema al entrar
+clear
+fastfetch
+
 autoload -Uz compinit && compinit
 
 # Sugerencias primero
